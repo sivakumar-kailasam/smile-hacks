@@ -12,7 +12,6 @@ import {
 } from "@shopify/polaris";
 import { CalendarMinor, DeleteMinor, DragHandleMinor } from "@shopify/polaris-icons";
 import React, { useCallback, useState } from "react";
-import { AppShell } from "./AppShell";
 
 export default function CreatePoll() {
   const [first, setFirst] = useState("Pick our next holiday flavour!");
@@ -134,9 +133,10 @@ export default function CreatePoll() {
 
               <FormLayout.Group title="Options">
                 <Stack vertical>
-                  {options.map(function (option) {
+                  {options.map(function (option, i) {
                     return (
                       <TextField
+                        key={i}
                         label=""
                         value={option}
                         onChange={handleLastChange}
